@@ -1,0 +1,186 @@
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f3a683, #f7d794, #d1ccc0);
+    color: #333;
+}
+
+/* Main container styling */
+.page-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Title styling */
+.page-title {
+    text-align: center;
+    color: #020100;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Filter container styling */
+.filter-container {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.filter-container input[type="date"] {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+/* Tabs container styling */
+.tabs-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #ffa726, #fb8c00);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin: 15px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.tab-button:hover {
+    opacity: 0.85;
+    transform: translateY(-3px);
+}
+
+/* Add sale button styling */
+.add-sale-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: white;
+    background: linear-gradient(45deg, #4caf50, #81c784);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.add-sale-button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+/* Sales table styling */
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sales-table th, .sales-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.sales-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.sales-table td {
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Highlight rows on hover */
+.sales-table tr:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.2s;
+}
+
+/* Totals container styling */
+.totals-container {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Modifier Button */
+.edit-button {
+    background: linear-gradient(45deg, #42a5f5, #64b5f6); /* Blue gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button:hover {
+    background: linear-gradient(45deg, #1e88e5, #42a5f5); /* Darker blue gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Supprimer Button */
+.delete-button {
+    background: linear-gradient(45deg, #ef5350, #e57373); /* Red gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tab-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-button:hover {
+    background: #e6e6e6;
+}
+
+.tab-button.active {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.delete-button:hover {
+    background: linear-gradient(45deg, #d32f2f, #ef5350); /* Darker red gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+}

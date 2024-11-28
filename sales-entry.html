@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter une Vente</title>
+    <link rel="stylesheet" href="sales-entry.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Ajouter une Vente</h1>
+        <form id="sale-form" class="entry-form">
+            <div class="form-group">
+                <label for="product-name">Nom du Produit</label>
+                <input type="text" id="product-name" placeholder="Entrez le nom du produit" required>
+            </div>
+            <div class="form-group">
+                <label for="purchase-price">Prix d'Achat</label>
+                <input type="number" id="purchase-price" placeholder="Entrez le prix d'achat" required>
+            </div>
+            <div class="form-group">
+                <label for="selling-price">Prix de Vente</label>
+                <input type="number" id="selling-price" placeholder="Entrez le prix de vente" required>
+            </div>
+            <div class="form-group">
+                <label for="client-name">Nom du Client</label>
+                <input type="text" id="client-name" placeholder="Entrez le nom du client">
+            </div>
+            <div class="form-group">
+                <label for="sale-date">Date de Vente</label>
+                <input type="date" id="sale-date" required>
+            </div>
+            <div class="button-group">
+                <button type="submit" class="save-button">Enregistrer</button>
+                <button type="button" class="cancel-button" id="cancel-button">Annuler</button>
+            </div>
+        </form>
+    </div>
+    <script src="sales-entry.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Ventes</title>
+    <link rel="stylesheet" href="sales.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Gestion des Ventes</h1>
+        
+        <div class="filter-container">
+            <label for="date-picker">Sélectionnez une date:</label>
+            <input type="date" id="date-picker">
+        </div>
+
+        <div class="tabs-container">
+            <div class="right-section">
+                <button class="tab-button" id="day-tab">Par Jour</button>
+                <button class="tab-button" id="week-tab">Par Semaine</button>
+                <button class="tab-button" id="month-tab">Par Mois</button>
+                <button class="tab-button" id="year-tab">Par Année</button>
+            </div>
+            <div class="left-section">
+                <button id="add-sale-button" class="add-sale-button">+ Ajouter une Vente</button>
+            </div>
+        </div>
+
+        <table class="sales-table">
+            <thead>
+                <tr>
+                    <th>Produit</th>
+                    <th>Prix d'Achat</th>
+                    <th>Prix de Vente</th>
+                    <th>Profit</th>
+                    <th>Date</th>
+                    <th>Nom Client</th> <!-- عمود للأيقونات -->
+                </tr>
+            </thead>
+            <tbody id="sales-list"></tbody>
+        </table>
+
+        <div class="totals-container">
+            <p id="total-items">Total des ventes: 0</p>
+            <p id="total-selling">Total Prix de Vente: 0 DH</p>
+            <p id="total-profit">Total Profit: 0 DH</p>
+        </div>
+    </div>
+
+    <script src="sales.js" type="module"></script>
+</body>
+</html>

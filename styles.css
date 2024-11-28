@@ -1,0 +1,82 @@
+/* إعداد التدرج اللوني للخلفية */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f3a683, #f7d794, #d1ccc0);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* تصميم الحاوية الرئيسية */
+.page-container {
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* تصميم العنوان الرئيسي */
+.page-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ff6600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+/* تصميم نموذج تسجيل الدخول */
+.login-container {
+    margin-top: 20px;
+}
+
+.login-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+/* تصميم الحقول */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* تصميم زر الاتصال */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #e65c00;
+    box-shadow: 0px 4px 10px rgba(255, 102, 0, 0.5);
+}
