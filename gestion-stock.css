@@ -1,0 +1,175 @@
+/* تصميم الصفحة */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f3a683, #f7d794, #d1ccc0);
+    color: #333;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #020100;
+}
+
+.tabs-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #ffa726, #fb8c00);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button.active {
+    background: #fb8c00;
+    font-weight: bold;
+}
+
+.tab-button:hover {
+    opacity: 0.9;
+}
+
+.add-stock-container {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.add-stock-button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #4caf50, #81c784);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-stock-button:hover {
+    opacity: 0.9;
+}
+
+.stock-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.stock-table th, .stock-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.stock-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.totals-container {
+    text-align: right;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+
+/* Tab Buttons: Tous les Produits, Vendu, Non Vendu */
+.tab-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+.tab-button:hover {
+    background: #e6e6e6;
+}
+
+.tab-button.active {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Modifier Button */
+.edit-button {
+    background: linear-gradient(45deg, #42a5f5, #64b5f6); /* Blue gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.edit-button:hover {
+    background: linear-gradient(45deg, #1e88e5, #42a5f5); /* Darker blue gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Supprimer Button */
+.delete-button {
+    background: linear-gradient(45deg, #ef5350, #e57373); /* Red gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button:hover {
+    background: linear-gradient(45deg, #d32f2f, #ef5350); /* Darker red gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Marquer Comme Vendu Button */
+.mark-as-sold-button {
+    background: linear-gradient(45deg, #4caf50, #81c784); /* Green gradient */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.mark-as-sold-button:hover {
+    background: linear-gradient(45deg, #388e3c, #66bb6a); /* Darker green gradient */
+    transform: scale(1.05); /* Slight zoom effect */
+}

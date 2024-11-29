@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Stock</title>
+    <link rel="stylesheet" href="gestion-stock.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Gestion de Stock</h1>
+        
+        <div class="tabs-container">
+            <button id="all-products-tab" class="tab-button">Tous les Produits</button>
+            <button id="sold-products-tab" class="tab-button">Vendu</button>
+            <button id="unsold-products-tab" class="tab-button">Non Vendu</button>
+        </div>
+
+        <!-- زر "Ajouter au Stock" -->
+        <div class="add-stock-container">
+            <button id="add-stock-button" class="add-stock-button">+ Ajouter au Stock</button>
+        </div>
+
+        <table class="stock-table">
+            <thead>
+                <tr>
+                    <th>Nom du Produit</th>
+                    <th>IMEI</th>
+                    <th>Configuration</th>
+                    <th>Prix d'Achat</th>
+                    <th>Date d'Achat</th>
+                    <th>Nom du Vendeur</th>
+                    <th>CIN</th>
+                    <th>Téléphone</th>
+                    <th>Statut</th>
+                </tr>
+            </thead>
+            <tbody id="stock-list"></tbody>
+        </table>
+
+        <div class="totals-container">
+            <p id="total-items">Total des Produits: 0</p>
+            <p id="total-capital">Capital Total: 0 DH</p>
+        </div>
+    </div>
+    <script src="gestion-stock.js" type="module"></script>
+</body>
+</html>
