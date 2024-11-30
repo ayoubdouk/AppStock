@@ -3,9 +3,13 @@ import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/
 import {
     getFirestore,
     collection,
+    doc,
     query,
     where,
-    getDocs
+    getDocs,
+    getDoc,
+    updateDoc,
+    deleteDoc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 // Firebase configuration
@@ -42,7 +46,7 @@ onAuthStateChanged(auth, (user) => {
         window.location.href = "index.html";
     } else {
         setDefaultDate(); // تعيين تاريخ اليوم في datePicker
-        chequeList.innerHTML = "<tr><td colspan='5'>اختر نوع الشيك لعرض القائمة.</td></tr>";
+        chequeList.innerHTML = "<tr><td colspan='6'>اختر نوع الشيك لعرض القائمة.</td></tr>";
         updateTotals(0, 0); // Reset totals on initial load
     }
 });
@@ -65,7 +69,7 @@ function updateTotals(totalCheques, totalUnpaidAmount) {
 // تحميل جميع الشيكات
 async function loadAllCheques() {
     if (!currentCollection) {
-        chequeList.innerHTML = "<tr><td colspan='5'>يرجى اختيار الشيكات الصادرة أو المستلمة أولاً.</td></tr>";
+        chequeList.innerHTML = "<tr><td colspan='6'>يرجى اختيار الشيكات الصادرة أو المستلمة أولاً.</td></tr>";
         updateTotals(0, 0);
         return;
     }
@@ -80,14 +84,14 @@ async function loadAllCheques() {
         const snapshot = await getDocs(chequesRef);
 
         if (snapshot.empty) {
-            chequeList.innerHTML = "<tr><td colspan='5'>لا توجد شيكات.</td></tr>";
+            chequeList.innerHTML = "<tr><td colspan='6'>لا توجد شيكات.</td></tr>";
             updateTotals(0, 0);
             return;
         }
 
         snapshot.forEach((doc) => {
             const data = doc.data();
-            addChequeToTable(data);
+            addChequeToTable(data, doc.id);
 
             if (!data.paye) {
                 totalCheques++;
@@ -104,7 +108,7 @@ async function loadAllCheques() {
 // تحميل الشيكات حسب التاريخ المحدد
 async function loadChequesByDate() {
     if (!currentCollection) {
-        chequeList.innerHTML = "<tr><td colspan='5'>يرجى اختيار الشيكات الصادرة أو المستلمة أولاً.</td></tr>";
+        chequeList.innerHTML = "<tr><td colspan='6'>يرجى اختيار الشيكات الصادرة أو المستلمة أولاً.</td></tr>";
         updateTotals(0, 0);
         return;
     }
@@ -129,14 +133,14 @@ async function loadChequesByDate() {
         const snapshot = await getDocs(q);
 
         if (snapshot.empty) {
-            chequeList.innerHTML = "<tr><td colspan='5'>لا توجد شيكات لهذا التاريخ.</td></tr>";
+            chequeList.innerHTML = "<tr><td colspan='6'>لا توجد شيكات لهذا التاريخ.</td></tr>";
             updateTotals(0, 0);
             return;
         }
 
         snapshot.forEach((doc) => {
             const data = doc.data();
-            addChequeToTable(data);
+            addChequeToTable(data, doc.id);
 
             if (!data.paye) {
                 totalCheques++;
@@ -151,7 +155,7 @@ async function loadChequesByDate() {
 }
 
 // إضافة شيك إلى الجدول
-function addChequeToTable(cheque) {
+function addChequeToTable(cheque, chequeId) {
     const row = document.createElement("tr");
 
     let formattedDate = "N/A";
@@ -165,36 +169,103 @@ function addChequeToTable(cheque) {
         <td>${cheque.tireurCheque || cheque.titulaireCheque || "N/A"}</td>
         <td>${cheque.montantCheque || 0} DH</td>
         <td>${formattedDate}</td>
-        <td>${cheque.paye ? "Payé" : "Non payé"}</td>
+        <td>${cheque.paye ? "Payé" : "Non Payé"}</td>
+        <td>
+            <button class="action-button modify-button" data-id="${chequeId}">Modifier</button>
+            <button class="action-button delete-button" data-id="${chequeId}">Supprimer</button>
+        </td>
     `;
+
     chequeList.appendChild(row);
+
+    // Attach event listeners
+    row.querySelector(".modify-button").addEventListener("click", () => editCheque(chequeId));
+    row.querySelector(".delete-button").addEventListener("click", () => deleteCheque(chequeId));
+}
+
+async function deleteCheque(chequeId) {
+    try {
+        const userId = auth.currentUser.uid;
+        const chequeRef = doc(db, `users/${userId}/${currentCollection}`, chequeId);
+
+        if (confirm("Êtes-vous sûr de vouloir supprimer ce chèque ?")) {
+            await deleteDoc(chequeRef);
+            alert("Chèque supprimé avec succès !");
+            loadAllCheques();
+        }
+    } catch (error) {
+        console.error("Erreur lors de la suppression du chèque:", error.message);
+        alert("Une erreur s'est produite lors de la suppression.");
+    }
+}
+
+async function editCheque(chequeId) {
+    try {
+        const userId = auth.currentUser.uid;
+        const chequeRef = doc(db, `users/${userId}/${currentCollection}`, chequeId);
+
+        // Fetch existing cheque details
+        const chequeSnapshot = await getDoc(chequeRef);
+        if (!chequeSnapshot.exists()) {
+            alert("Le chèque n'existe pas !");
+            return;
+        }
+
+        const chequeData = chequeSnapshot.data();
+
+        // Prompt the user for new values
+        const newNumero = prompt("Modifier le numéro de chèque :", chequeData.numeroCheque);
+        const newMontant = prompt("Modifier le montant du chèque :", chequeData.montantCheque);
+        const newTireur = prompt("Modifier le tireur/titulaire du chèque :", chequeData.tireurCheque || chequeData.titulaireCheque);
+        const newPayeStatus = confirm("Le chèque est-il payé ? (OK pour Oui, Annuler pour Non)") ? true : false;
+
+        // Validate numeric input for montantCheque
+        if (isNaN(newMontant)) {
+            alert("Veuillez entrer un montant valide.");
+            return;
+        }
+
+        // Update the cheque
+        await updateDoc(chequeRef, {
+            numeroCheque: newNumero || chequeData.numeroCheque,
+            montantCheque: newMontant ? parseFloat(newMontant) : chequeData.montantCheque,
+            tireurCheque: newTireur || chequeData.tireurCheque,
+            paye: newPayeStatus
+        });
+
+        alert("Chèque modifié avec succès !");
+        loadAllCheques(); // Refresh the list
+    } catch (error) {
+        console.error("Erreur lors de la modification du chèque :", error.message);
+        alert("Une erreur s'est produite lors de la modification.");
+    }
 }
 
 // تبديل بين عرض الشيكات الكاملة أو حسب التاريخ
 toggleButton.addEventListener("click", () => {
     if (showAllCheques) {
-        toggleButton.textContent = "Afficher tous les chèques"; // تغيير النص
+        toggleButton.textContent = "Afficher tous les chèques";
         loadChequesByDate();
     } else {
         toggleButton.textContent = "Afficher par date";
         loadAllCheques();
     }
-    showAllCheques = !showAllCheques; // تبديل الحالة
+    showAllCheques = !showAllCheques;
 });
 
 // عند النقر على زر الشيكات الصادرة
 emisButton.addEventListener("click", () => {
     currentCollection = "chequesEmis";
-    emisButton.classList.add("active"); // إضافة مؤشر على الزر
-    remisButton.classList.remove("active"); // إزالة المؤشر من الزر الآخر
+    emisButton.classList.add("active");
+    remisButton.classList.remove("active");
     loadAllCheques();
 });
 
 // عند النقر على زر الشيكات المستلمة
 remisButton.addEventListener("click", () => {
     currentCollection = "chequesRemis";
-    remisButton.classList.add("active"); // إضافة مؤشر على الزر
-    emisButton.classList.remove("active"); // إزالة المؤشر من الزر الآخر
+    remisButton.classList.add("active");
+    emisButton.classList.remove("active");
     loadAllCheques();
 });
 
@@ -207,4 +278,8 @@ searchBar.addEventListener("input", () => {
         const rowText = row.textContent.toLowerCase();
         row.style.display = rowText.includes(searchTerm) ? "" : "none";
     });
+});
+// الانتقال إلى صفحة "stock-entry"
+document.getElementById("add-cheque").addEventListener("click", () => {
+    window.location.href = "ajouter-cheque.html";
 });

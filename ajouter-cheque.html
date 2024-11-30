@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Chèque</title>
+    <link rel="stylesheet" href="ajouter-cheque.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Ajouter un Chèque</h1>
+
+        <!-- Form for Adding Cheque -->
+        <form id="add-cheque-form" class="form-container">
+            <div class="form-group">
+                <label for="numero-cheque">Numéro de Chèque:</label>
+                <input type="text" id="numero-cheque" placeholder="Entrez le numéro de chèque" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tireur-titulaire">Tireur/Titulaire:</label>
+                <input type="text" id="tireur-titulaire" placeholder="Entrez le tireur ou titulaire" required>
+            </div>
+
+            <div class="form-group">
+                <label for="montant-cheque">Montant:</label>
+                <input type="number" id="montant-cheque" placeholder="Entrez le montant" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date-cheque">Date:</label>
+                <input type="date" id="date-cheque" required>
+            </div>
+
+            <div class="form-group">
+                <label for="type-cheque">Type de Chèque:</label>
+                <select id="type-cheque" required>
+                    <option value="" disabled selected>Choisir...</option>
+                    <option value="chequesEmis">Chèque Émis</option>
+                    <option value="chequesRemis">Chèque Remis</option>
+                </select>
+            </div>
+
+            <div class="form-buttons">
+                <button type="submit" class="action-button">Ajouter</button>
+                <button type="button" id="cancel-button" class="action-button cancel-button">Annuler</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="ajouter-cheque.js" type="module"></script>
+</body>
+</html>

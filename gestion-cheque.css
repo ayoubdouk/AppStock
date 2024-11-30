@@ -49,6 +49,11 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+.buttons-container {
+    display: flex; /* Enable Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
 
 .filter-button {
     padding: 10px 20px;
@@ -72,6 +77,31 @@ body {
     color: white;
     font-weight: bold;
 }
+
+.add-boutton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+.add-boutton:hover {
+    background: #66bb6a;
+    transform: translateY(-3px);
+}
+
+.add-boutton.active {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+
 
 /* Cheques Table */
 .cheque-table {
@@ -118,4 +148,38 @@ body {
     text-align: right;
     color: #333;
     font-weight: bold;
+}
+/* General Styling for Action Buttons */
+.action-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-right: 5px;
+    color: white;
+    text-transform: uppercase;
+}
+
+/* Modifier Button Styling */
+.modify-button {
+    background: linear-gradient(45deg, #42a5f5, #64b5f6); /* Blue gradient */
+}
+
+.modify-button:hover {
+    background: linear-gradient(45deg, #1e88e5, #42a5f5); /* Darker blue */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Supprimer Button Styling */
+.delete-button {
+    background: linear-gradient(45deg, #ef5350, #e57373); /* Red gradient */
+}
+
+.delete-button:hover {
+    background: linear-gradient(45deg, #d32f2f, #ef5350); /* Darker red */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
