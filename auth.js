@@ -18,7 +18,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Handle login form submission
-// Handle login form submission
 document.getElementById("login-form").addEventListener("submit", async (e) => {
     e.preventDefault(); // منع إعادة تحميل الصفحة
 
@@ -27,16 +26,9 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
 
     try {
         // محاولة تسجيل الدخول
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
+        await signInWithEmailAndPassword(auth, email, password);
 
-        // التحقق إذا كان البريد الإلكتروني غير مفعل
-        if (!user.emailVerified) {
-            alert("Votre email n'est pas encore vérifié. Veuillez vérifier votre boîte mail.");
-            return; // إيقاف العملية هنا
-        }
-
-        // إذا كانت بيانات تسجيل الدخول صحيحة وكان البريد مفعل، الانتقال إلى صفحة الترحيب
+        // إذا كانت بيانات تسجيل الدخول صحيحة، الانتقال إلى صفحة الترحيب
         window.location.href = "welcome.html";
     } catch (error) {
         // عرض رسالة خطأ بناءً على نوع الخطأ
