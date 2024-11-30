@@ -1,29 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connexion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1 class="app-title">AppStock</h1>
     <div class="page-container">
-        <h1 class="page-title">AppStock</h1>
         <div class="login-container">
-            <form id="login-form" class="login-form">
+            <h2 class="login-title">Connexion</h2>
+            <form id="login-form">
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Entrez votre email" required>
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
+                    <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
                 </div>
+                <p class="forgot-password">
+                    <a id="forgot-password-link" href="#">Vous avez oublié votre mot de passe ?</a>
+                </p>
                 <button type="submit" class="login-button">Connexion</button>
             </form>
+            <p class="create-account">
+                Vous n'avez pas de compte? <a href="signup.html">Créer un compte</a>
+            </p>
         </div>
-        <div id="error-message" style="color: red; display: none;"></div>
     </div>
-    <script type="module" src="auth.js"></script>
+    <script src="auth.js" type="module"></script>
 </body>
 </html>
