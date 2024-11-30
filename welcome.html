@@ -10,40 +10,62 @@
     <link rel="stylesheet" href="welcome.css">
 </head>
 <body>
+    <!-- Header with Logout and Slide Menu Buttons -->
+    <div class="header">
+        <button id="menu-button" class="menu-button">
+            <span class="icon"> ⚙️</span>
+        </button>
+        <button id="logout-button" class="logout-button">Déconnexion</button>
+    </div>
+
+    <!-- Sliding Menu -->
+    <div id="slide-menu" class="slide-menu">
+        <div class="menu-content">
+            <h3>Options</h3>
+            <ul>
+                <li><span class="menu-icon">👤</span> Informations personnelles</li>
+                <li><span class="menu-icon">🔒</span> Sécurité</li>
+                <li><span class="menu-icon">⚙️</span> Paramètres</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
     <div class="page-container">
-        <h1 class="page-title">AppStock</h1>
         <div class="buttons-container">
+            <h1 class="page-title">AppStock</h1>
             <div class="row">
-                <a href="sales.html" class="gradient-button">
+                <button id="sales-button" class="gradient-button">
                     <span class="icon">📦</span>
                     <span>Gestion de vente</span>
-                </a>
-                <a href="gestion-stock.html" class="gradient-button">
+                </button>
+                <button id="stock-button" class="gradient-button">
                     <span class="icon">📊</span>
                     <span>Gestion de stock</span>
-                </a>
+                </button>
             </div>
             <div class="row">
-                <button class="gradient-button">
+                <button id="cheque-button" class="gradient-button">
                     <span class="icon">💰</span>
                     <span>Gestion de chèque</span>
                 </button>
-                <button class="gradient-button">
+                <button id="expense-button" class="gradient-button">
                     <span class="icon">📉</span>
                     <span>Gestion de dépense</span>
                 </button>
-            </div>
-            <div class="row">
-                <button class="gradient-button">
+                <button id="credit-button" class="gradient-button">
                     <span class="icon">🏦</span>
                     <span>Gestion de crédit</span>
                 </button>
             </div>
         </div>
-        <div class="logout-container">
-            <button id="logout-button" class="logout-button">Déconnexion</button>
-        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        Tous les droits réservés Ayoub Douk © 2024
+    </footer>
+
     <script src="welcome.js" type="module"></script>
 </body>
 </html>

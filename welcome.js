@@ -27,6 +27,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    const menuButton = document.getElementById("menu-button");
+const slideMenu = document.getElementById("slide-menu");
+
+// Toggle sliding menu
+menuButton.addEventListener("click", () => {
+    slideMenu.classList.toggle("active");
+});
+
+// Close menu when clicking outside (optional)
+document.addEventListener("click", (event) => {
+    if (!slideMenu.contains(event.target) && !menuButton.contains(event.target)) {
+        slideMenu.classList.remove("active");
+    }
+});
+
     // Logout button logic
     const logoutButton = document.getElementById("logout-button");
 
@@ -42,3 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     });
 });
+
+
+document.getElementById("sales-button").addEventListener("click", () => {
+    window.location.href = "sales.html"; // Replace with your desired page URL
+});
+
+document.getElementById("stock-button").addEventListener("click", () => {
+    window.location.href = "gestion-stock.html"; // Replace with your desired page URL
+});
+
+document.getElementById("cheque-button").addEventListener("click", () => {
+    window.location.href = "gestion-cheque.html"; // Replace with your desired page URL
+});
+
+document.getElementById("yourButtonId").addEventListener("click", () => {
+    window.location.href = "your-target-page.html"; // Replace with your desired page URL
+});
+
+document.getElementById("yourButtonId").addEventListener("click", () => {
+    window.location.href = "your-target-page.html"; // Replace with your desired page URL
+});
+
+

@@ -1,4 +1,3 @@
-
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
@@ -6,37 +5,174 @@ body {
     padding: 0;
     background: linear-gradient(to bottom, #f3a683, #f7d794, #d1ccc0);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
 }
 
+/* Header Styling */
+.header {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end; /* Keep the logout button aligned to the right */
+    align-items: center;
+    background: transparent; /* Removed the green bar */
+}
+
+/* Logout Button */
+.logout-button {
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-right: 30px; /* Add spacing to the left */
+    margin-left: 20px; /* Adds 20px of space to the left */
+
+}
+
+.logout-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Menu Button */
+.menu-button {
+    width: 50px; /* Adjust width for better appearance */
+    height: 37px; /* Adjust height */
+    background: linear-gradient(to right, #c4c4c5, #fbfcfd);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px; /* Inner padding */
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex; /* Use Flexbox for alignment */
+    align-items: center; /* Vertically align icon and text */
+    justify-content: flex-start; /* Move items to the left */
+    gap: 10px; /* Space between icon and text */
+}
+
+.menu-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.menu-button .icon {
+    font-size: 21px; /* Icon size */
+    margin-right: 5px; /* Optional for additional spacing */
+}
+
+/* Sliding Menu */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 6px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.slide-menu.active {
+    right: 0;
+}
+
+.menu-content {
+    padding: 20px;
+}
+
+.menu-content h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.menu-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-content ul li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-content ul li .menu-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    color: #6a11cb;
+}
+
+
+
+/* Main Content */
 .page-container {
     text-align: center;
     width: 90%;
     max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+/* Buttons Container */
+.buttons-container {
+    margin-top: 30px; /* Adds spacing to lower buttons */
 }
 
 .page-title {
     font-size: 36px;
     color: #fff;
-    margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0; /* Remove default margin */
+    position: absolute; /* Position it in the center */
+    top: 20%; /* Move to the middle vertically */
+    left: 50%; /* Move to the middle horizontally */
+    transform: translate(-50%, -50%) scale(0.8); /* Start slightly smaller */
+    opacity: 0; /* Start invisible */
+    animation: fadeInScale 1.5s ease-out forwards; /* Apply animation */
 }
 
-/* Buttons Container */
-.buttons-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+/* Animation keyframes */
+@keyframes fadeInScale {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8); /* Slightly smaller */
+        opacity: 0; /* Invisible */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2); /* Overshoot effect */
+        opacity: 0.8; /* Partially visible */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* Final size */
+        opacity: 1; /* Fully visible */
+    }
 }
 
+/* Centered Rows */
 .row {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 /* Button Styling */
@@ -69,25 +205,16 @@ body {
     margin-bottom: 10px;
 }
 
-/* Logout Button */
-.logout-container {
-    margin-top: 20px;
-}
-
-.logout-button {
-    background: linear-gradient(to right, #ff6a00, #ee0979);
-    border: none;
-    border-radius: 10px;
-    padding: 15px 30px;
-    font-size: 16px;
-    color: white;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.logout-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+/* Footer */
+.footer {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 10px;
+    color: #333;
+    margin-top: auto;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
 }

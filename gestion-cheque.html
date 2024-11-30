@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Chèque</title>
+    <link rel="stylesheet" href="gestion-cheque.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Gestion de Chèque</h1>
+
+        <!-- Buttons for filtering cheques -->
+        <div class="buttons-container">
+            <button id="emis-button" class="filter-button">Chèque Émis</button>
+            <button id="remis-button" class="filter-button">Chèque Remis</button>
+        </div>
+
+        <!-- Search and Date Picker -->
+        <div class="search-container">
+            <input id="search-bar" type="text" placeholder="Rechercher (Numéro, Tireur, Titulaire, Montant)">
+            <input type="date" id="date-picker">
+            <button id="toggle-button">Afficher par date</button>
+        </div>
+
+        <!-- Cheques Table -->
+        <table class="cheque-table">
+            <thead>
+                <tr>
+                    <th>Numéro de Chèque</th>
+                    <th>Tireur/Titulaire</th>
+                    <th>Montant</th>
+                    <th>Date</th>
+                    <th>Payé/Non Payé</th>
+                </tr>
+            </thead>
+            <tbody id="cheque-list">
+                <!-- Dynamic content will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <div id="totals-container" style="margin-top: 20px; padding: 10px; background: #f7f7f7; border-radius: 8px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); font-size: 1rem; text-align: left; color: #333;
+    font-weight: bold; ">
+        
+    </div>
+    <script src="gestion-cheque.js" type="module"></script>
+</body>
+</html>
