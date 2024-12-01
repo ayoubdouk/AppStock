@@ -183,3 +183,140 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
+
+
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+
+    .page-container {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+
+    .tabs-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-button {
+        font-size: 0.9rem; /* Reduce button size for smaller screens */
+    }
+
+    .search-container {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    #search-bar,
+    #date-picker {
+        width: 100%; /* Full width for inputs */
+    }
+
+    .cheque-table th,
+    .cheque-table td {
+        font-size: 0.8rem; /* Adjust table font size */
+    }
+
+    .action-button {
+        padding: 5px 8px; /* Smaller padding for action buttons */
+        font-size: 0.8rem;
+    }
+
+    .totals-container {
+        text-align: center; /* Center totals on smaller screens */
+        font-size: 0.9rem; /* Adjust font size */
+    }
+}
+
+/* Responsive Media Queries for Small Screens (480px and below) */
+@media (max-width: 480px) {
+    /* Page Container */
+    .page-container {
+        padding: 10px; /* Reduce padding for very small screens */
+        margin: 10px; /* Reduce outer margin */
+        box-shadow: none; /* Remove shadow to make it simpler */
+    }
+
+    /* Page Title */
+    .page-title {
+        font-size: 1.5rem; /* Smaller title for narrow screens */
+        margin-bottom: 15px; /* Reduce space below the title */
+    }
+
+    /* Tabs Container */
+    .tabs-container {
+        display: flex;
+        flex-direction: column; /* Stack tabs vertically */
+        gap: 10px; /* Add spacing between stacked tabs */
+    }
+
+    .tab-button {
+        font-size: 0.85rem; /* Smaller font size for tabs */
+        padding: 8px 10px; /* Reduce padding for smaller buttons */
+    }
+
+    /* Search and Date Picker */
+    .search-container {
+        flex-direction: column; /* Stack search inputs vertically */
+        gap: 8px; /* Reduce spacing between inputs */
+    }
+
+    #search-bar,
+    #date-picker {
+        width: 100%; /* Full width for inputs */
+        font-size: 0.9rem; /* Adjust font size */
+        padding: 8px; /* Smaller padding for inputs */
+    }
+
+    /* Buttons Container */
+    .buttons-container {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 10px; /* Add spacing between buttons */
+    }
+
+    .filter-button {
+        font-size: 0.85rem; /* Adjust font size */
+        padding: 8px 12px; /* Smaller padding for buttons */
+    }
+
+    /* Cheques Table */
+    .cheque-table {
+        font-size: 0.8rem; /* Smaller font size for table content */
+    }
+
+    .cheque-table th,
+    .cheque-table td {
+        padding: 8px; /* Reduce padding for table cells */
+    }
+
+    /* Totals Container */
+    .totals-container {
+        font-size: 0.85rem; /* Adjust font size */
+        text-align: center; /* Center-align totals for better visibility */
+        padding: 8px; /* Reduce padding */
+    }
+
+    /* Action Buttons */
+    .action-button {
+        font-size: 0.75rem; /* Smaller font size for action buttons */
+        padding: 5px 8px; /* Reduce padding */
+    }
+
+    /* Modifier and Delete Buttons */
+    .modify-button,
+    .delete-button {
+        padding: 5px 8px; /* Smaller padding */
+        font-size: 0.75rem; /* Adjust font size */
+    }
+
+    /* General Adjustments */
+    .add-boutton {
+        font-size: 0.8rem; /* Adjust add button size */
+        padding: 8px 12px; /* Reduce padding */
+    }
+
+    .filter-button.active {
+        font-size: 0.9rem; /* Slightly larger for active state */
+    }
+}
