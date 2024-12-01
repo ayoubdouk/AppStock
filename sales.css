@@ -187,3 +187,81 @@ body {
 }
 
 
+
+
+/* استعلام الوسائط للشاشات الصغيرة (الأجهزة المحمولة) */
+@media (max-width: 768px) {
+    .page-container {
+        max-width: 90%; /* اجعل الحاوية أصغر */
+        padding: 15px; /* تقليل التباعد */
+        margin: 10px auto; /* تقليل الحواف */
+    }
+
+    .page-title {
+        font-size: 1.5rem; /* تصغير حجم العنوان */
+        margin-bottom: 10px;
+    }
+
+    .tab-button {
+        padding: 8px 12px; /* تصغير الحشو */
+        font-size: 0.9rem; /* تقليل النص */
+        margin: 8px; /* تقليل المسافات */
+    }
+
+    .sales-table th,
+    .sales-table td {
+        font-size: 0.8rem; /* تقليل النص في الجدول */
+        padding: 8px; /* تقليل الحشو */
+    }
+
+    .edit-button,
+    .delete-button {
+        font-size: 0.8rem; /* تصغير النص */
+        padding: 4px 8px; /* تصغير الحشو */
+    }
+
+    .totals-container {
+        font-size: 0.9rem; /* تقليل النص في الحاوية */
+        padding: 8px; /* تقليل الحشو */
+    }
+
+    .add-sale-button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+        width: 100%; /* الزر يأخذ العرض الكامل */
+    }
+}
+
+/* استعلام الوسائط للشاشات الأصغر (هواتف صغيرة جدًا) */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.2rem;
+    }
+
+    .tab-button {
+        font-size: 0.8rem;
+        padding: 6px 8px;
+    }
+
+    .sales-table th,
+    .sales-table td {
+        font-size: 0.7rem;
+        padding: 6px;
+    }
+
+    .edit-button,
+    .delete-button {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    .add-sale-button {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    .totals-container {
+        font-size: 0.8rem;
+        padding: 6px;
+    }
+}
