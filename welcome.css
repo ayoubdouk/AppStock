@@ -219,5 +219,51 @@ body {
     bottom: 0;
 }
 
+@media (max-width: 780px) {
 
+    /* Adjust the Title */
+    .page-title {
+        font-size: 1.8rem; /* Slightly larger font */
+        margin-bottom: 20px; /* Add space below the title */
+        text-align: center;
+    }
 
+    /* Row Adjustments */
+    .row {
+        display: flex;
+        flex-wrap: wrap; /* Allow buttons to wrap to a new row */
+        justify-content: center; /* Center align buttons */
+        gap: 20px; /* Space between buttons */
+        margin-bottom: 20px; /* Add space between rows */
+    }
+
+    /* Buttons Adjustments */
+    .gradient-button {
+        width: 45%; /* Two buttons per row */
+        height: auto;
+        padding: 15px 10px; /* Adjust padding for smaller screens */
+        font-size: 1rem; /* Slightly larger font */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    }
+
+    /* Center the Fifth Button */
+    .row.fifth-button {
+        justify-content: center; /* Center-align the last button */
+    }
+
+    /* Smaller Logout and Menu Buttons */
+    .logout-button,
+    .menu-button {
+        font-size: 12px;
+        padding: 8px 12px;
+        border-radius: 5px;
+    }
+
+    .logout-button {
+        margin-right: 27px;
+    }
+
+    .menu-button {
+        gap: 5px;
+    }
+}
