@@ -176,3 +176,73 @@ body {
 
 
 
+/* دعم الشاشات الصغيرة */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .page-container {
+        max-width: 95%; /* تضييق الحاوية */
+        padding: 15px; /* تقليل التباعد الداخلي */
+    }
+
+    .page-title {
+        font-size: 20px; /* تقليل حجم العنوان */
+        margin-bottom: 10px;
+    }
+
+    .tab-button {
+        font-size: 0.9rem; /* تقليل حجم النص */
+        padding: 8px 12px; /* تقليل التباعد */
+    }
+
+    .edit-button, .delete-button, .mark-as-sold-button {
+        font-size: 0.8rem; /* تصغير حجم الأزرار */
+        padding: 4px 8px;
+    }
+
+    .stock-table {
+        font-size: 12px; /* تقليل النص في الجدول */
+    }
+
+    .stock-table th, .stock-table td {
+        padding: 8px; /* تقليل التباعد في الجدول */
+    }
+
+    .add-stock-button {
+        width: 100%; /* اجعل الزر بعرض الشاشة */
+        font-size: 1rem; /* تصغير النص */
+    }
+}
+
+/* دعم الشاشات الأصغر حجمًا */
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 18px;
+    }
+
+    .tab-button {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+
+    .edit-button, .delete-button, .mark-as-sold-button {
+        font-size: 0.7rem;
+        padding: 3px 6px;
+    }
+
+    .stock-table {
+        font-size: 10px;
+    }
+
+    .stock-table th, .stock-table td {
+        padding: 5px;
+    }
+
+    .add-stock-button {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+}
