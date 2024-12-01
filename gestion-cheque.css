@@ -201,7 +201,7 @@ body {
     }
 
     .filter-button {
-        font-size: 0.9rem; /* Reduce button size for smaller screens */
+        font-size: 0.1rem; /* Reduce button size for smaller screens */
     }
 
     .search-container {
