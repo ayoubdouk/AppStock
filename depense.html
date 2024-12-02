@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Dépenses</title>
+    <link rel="stylesheet" href="depense.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Gestion des Dépenses</h1>
+
+        <!-- Filter Options -->
+        <div class="filter-container">
+            <select id="filter-period">
+                <option value="day">Aujourd'hui</option>
+                <option value="week">Cette Semaine</option>
+                <option value="month">Ce Mois</option>
+                <option value="year">Cette Année</option>
+            </select>
+            <input type="date" id="date-picker">
+            <button id="add-expense-button">+ Ajouter une Dépense</button>
+        </div>
+
+        <!-- Expense Table -->
+        <table class="expense-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Montant</th>
+                    <th>Mode de Paiement</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="expense-list">
+                <!-- Dynamic content will go here -->
+            </tbody>
+        </table>
+
+        <!-- Total Section -->
+        <div class="totals-container" id="totals-container">
+            <!-- Totals will be dynamically inserted here -->
+        </div>
+    </div>
+    <script src="depense.js" type="module"></script>
+</body>
+</html>

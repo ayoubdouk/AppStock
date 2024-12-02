@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #f3a683, #f7d794, #d1ccc0);
+    min-height: 100vh; /* Ensure the gradient covers the entire viewport */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Start aligning from the top */
+    color: #333;
+}
+
+.page-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto; /* Add margin to separate from the top */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between; /* Space evenly between elements */
+    gap: 10px; /* Add equal spacing between elements */
+    margin-bottom: 20px; /* Maintain bottom margin */
+}
+
+#filter-period, #date-picker, #filter-button, #add-expense-button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1; /* Make all elements take equal width */
+    text-align: center; /* Center-align text inside buttons/inputs */
+}
+
+#add-expense-button {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#add-expense-button:hover {
+    background-color: #efa00d; /* Darker green for hover */
+}
+
+#filter-period, #date-picker {
+    background-color: #fff;
+    cursor: text; /* Indicate editable inputs */
+}
+
+#add-expense-button {
+    background-color: #02aa18;
+    color: white;
+}
+
+.expense-table-container {
+    flex-grow: 1; /* Allow the table container to expand */
+    overflow-y: auto; /* Enable vertical scrolling for long lists */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 10px;
+    max-height: calc(80vh - 150px); /* Restrict max height to fit the viewport */
+}
+
+.expense-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.expense-table th, .expense-table td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.expense-table th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.totals-container {
+    margin-top: 10px;
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px; /* Reduced padding */
+    border-radius: 8px;
+    width: 90%;
+    max-width: 350px; /* Slightly smaller max-width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.modal-content h2 {
+    margin: 0 0 15px; /* Reduced bottom margin */
+    font-size: 1.2rem; /* Smaller title font size */
+    color: #333;
+}
+
+.modal-content form label {
+    display: block;
+    font-size: 0.9rem; /* Reduced label font size */
+    margin-bottom: 4px; /* Reduced margin */
+    color: #555;
+}
+
+.modal-content form input {
+    width: 100%;
+    padding: 8px; /* Reduced padding */
+    margin-bottom: 10px; /* Reduced margin */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem; /* Smaller font size */
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Add some spacing between buttons */
+}
+
+.modal-buttons button {
+    padding: 8px 10px; /* Reduced padding */
+    font-size: 0.9rem; /* Smaller font size */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex: 1; /* Make buttons take equal space */
+}
+
+.modal-buttons #cancel-button {
+    background: #f44336;
+    color: white;
+}
+
+.modal-buttons #cancel-button:hover {
+    background: #d32f2f;
+}
+
+.modal-buttons button[type="submit"] {
+    background: #4caf50;
+    color: white;
+}
+
+.modal-buttons button[type="submit"]:hover {
+    background: #388e3c;
+}

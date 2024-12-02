@@ -185,49 +185,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
-    .page-title {
-        font-size: 1.8rem; /* Adjust font size for smaller screens */
-    }
 
-    .page-container {
-        padding: 15px; /* Reduce padding for smaller screens */
-    }
-
-    .tabs-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .filter-button {
-        font-size: 0.9rem; /* Reduce button size for smaller screens */
-    }
-
-    .search-container {
-        flex-direction: column; /* Stack elements vertically */
-    }
-
-    #search-bar,
-    #date-picker {
-        width: 100%; /* Full width for inputs */
-    }
-
-    .cheque-table th,
-    .cheque-table td {
-        font-size: 0.8rem; /* Adjust table font size */
-    }
-
-    .action-button {
-        padding: 5px 8px; /* Smaller padding for action buttons */
-        font-size: 0.8rem;
-    }
-
-    .totals-container {
-        text-align: center; /* Center totals on smaller screens */
-        font-size: 0.9rem; /* Adjust font size */
-    }
-}
 
 /* Responsive Media Queries for Small Screens (480px and below) */
 @media (max-width: 480px) {
@@ -264,7 +222,7 @@ body {
 
     #search-bar,
     #date-picker {
-        width: 100%; /* Full width for inputs */
+        width: 91%; /* Full width for inputs */
         font-size: 0.9rem; /* Adjust font size */
         padding: 8px; /* Smaller padding for inputs */
     }

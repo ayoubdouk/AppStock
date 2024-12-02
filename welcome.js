@@ -71,8 +71,8 @@ document.getElementById("cheque-button").addEventListener("click", () => {
     window.location.href = "gestion-cheque.html"; // Replace with your desired page URL
 });
 
-document.getElementById("yourButtonId").addEventListener("click", () => {
-    window.location.href = "your-target-page.html"; // Replace with your desired page URL
+document.getElementById("expense-button").addEventListener("click", () => {
+    window.location.href = "depense.html"; // Replace with your desired page URL
 });
 
 document.getElementById("yourButtonId").addEventListener("click", () => {
