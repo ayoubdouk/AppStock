@@ -271,11 +271,11 @@ remisButton.addEventListener("click", () => {
 
 // البحث في القائمة
 searchBar.addEventListener("input", () => {
-    const searchTerm = searchBar.value.toLowerCase();
+    const searchTerm = searchBar.value.toLowerCase().replace(/\s+/g, ""); // Remove spaces from input
     const rows = chequeList.querySelectorAll("tr");
 
     rows.forEach((row) => {
-        const rowText = row.textContent.toLowerCase();
+        const rowText = row.textContent.toLowerCase().replace(/\s+/g, ""); // Remove spaces from row text
         row.style.display = rowText.includes(searchTerm) ? "" : "none";
     });
 });

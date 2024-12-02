@@ -33,6 +33,8 @@ const db = getFirestore(app);
 const stockList = document.getElementById("stock-list");
 const totalItems = document.getElementById("total-items");
 const totalCapital = document.getElementById("total-capital");
+const searchBar = document.getElementById("search-bar");
+const chequeList = document.getElementById("stock-list"); // Assuming stock-list is the table body
 const tabs = {
     all: document.getElementById("all-products-tab"),
     sold: document.getElementById("sold-products-tab"),
@@ -246,6 +248,17 @@ tabs.sold.addEventListener("click", () => {
 tabs.unsold.addEventListener("click", () => {
     setActiveTab(tabs.unsold);
     loadStock("unsold");
+});
+
+// Add event listener to search bar
+searchBar.addEventListener("input", () => {
+    const searchTerm = searchBar.value.toLowerCase().replace(/\s+/g, ""); // Remove spaces from input
+    const rows = chequeList.querySelectorAll("tr");
+
+    rows.forEach((row) => {
+        const rowText = row.textContent.toLowerCase().replace(/\s+/g, ""); // Remove spaces from row text
+        row.style.display = rowText.includes(searchTerm) ? "" : "none";
+    });
 });
 
 // الانتقال إلى صفحة "stock-entry"
