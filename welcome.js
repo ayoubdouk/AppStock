@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    const menuButton = document.getElementById("menu-button");
+const menuButton = document.getElementById("menu-button");
 const slideMenu = document.getElementById("slide-menu");
+// Add event listener to each icon
+
 
 // Toggle sliding menu
 menuButton.addEventListener("click", () => {
@@ -58,6 +60,19 @@ document.addEventListener("click", (event) => {
     });
 });
 
+// Select all icons with the data-link attribute
+const icons = document.querySelectorAll(".icon");
+
+// Add click event listener to each icon
+icons.forEach((icon) => {
+  icon.addEventListener("click", () => {
+    const link = icon.getAttribute("data-link"); // Get the link
+    if (link) {
+      window.open(link, "_blank"); // Open the link in a new tab
+    }
+  });
+});
+
 
 document.getElementById("sales-button").addEventListener("click", () => {
     window.location.href = "sales.html"; // Replace with your desired page URL
@@ -78,5 +93,6 @@ document.getElementById("expense-button").addEventListener("click", () => {
 document.getElementById("yourButtonId").addEventListener("click", () => {
     window.location.href = "your-target-page.html"; // Replace with your desired page URL
 });
+
 
 

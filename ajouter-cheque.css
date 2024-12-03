@@ -83,3 +83,67 @@ input, select {
 .action-button.cancel-button {
     background: linear-gradient(to right, #ef5350, #e57373); /* Red for cancel */
 }
+
+
+
+/* زر الرجوع الحديث */
+.back-button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.modern-back-button {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #4caf50, #81c784); /* لون متدرج */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-back-button:hover {
+    background: linear-gradient(to right, #388e3c, #66bb6a); /* لون عند التمرير */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.modern-back-button .back-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.modern-back-button .back-text {
+    font-size: 1rem;
+}
+
+.modern-back-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.modern-back-button:hover::after {
+    width: 100%;
+}
+
+.modern-back-button span {
+    position: relative;
+    z-index: 1;
+}
