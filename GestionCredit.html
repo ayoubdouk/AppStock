@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion de Crédit</title>
+    <link rel="stylesheet" href="GestionCredit.css">
+</head>
+<body>
+    <div class="page-container">
+        <h1 class="page-title">Gestion de Crédit</h1>
+        <div class="buttons-container">
+            <button id="credit-a-obtenir-button" class="filter-button active">Crédit à Obtenir</button>
+            <button id="credit-a-rembourser-button" class="filter-button">Crédit à Rembourser</button>
+        </div>
+
+        <table class="credit-table">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Montant</th>
+                    <th>Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="credits-list">
+                <!-- Les données ستتم إضافتها ديناميكياً -->
+            </tbody>
+        </table>
+
+        <div id="totals-container">Montant Total: 0 DH</div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="GestionCredit.js" type="module"></script>
+</body>
+</html>
