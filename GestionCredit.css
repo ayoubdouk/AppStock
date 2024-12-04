@@ -1,3 +1,4 @@
+/* Body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -6,72 +7,638 @@ body {
     color: #333;
 }
 
+/* Main container styling */
 .page-container {
-    width: 90%;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
+/* Title styling */
 .page-title {
     text-align: center;
-    font-size: 1.8rem;
+    color: #020100;
+    font-size: 2.2rem;
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
-.buttons-container {
+/* Filter container styling */
+.filter-container {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
 }
 
-.filter-button {
-    padding: 10px 20px;
+
+
+
+
+/* Tabs container styling */
+.tabs-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.tab-button {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #ffa726, #fb8c00);
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.filter-button.active {
-    background-color: #4caf50;
     color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin: 15px;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-.filter-button:not(.active) {
-    background-color: #f0f0f0;
-    color: #333;
+.tab-button:hover {
+    opacity: 0.85;
+    transform: translateY(-3px);
 }
 
+/* Credit table styling */
 .credit-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .credit-table th,
 .credit-table td {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 14px;
     text-align: left;
+    font-size: 1rem;
 }
 
 .credit-table th {
     background-color: #f2f2f2;
-}
-
-.credit-table tbody tr:hover {
-    background-color: #f9f9f9;
-}
-
-#totals-container {
-    margin-top: 10px;
-    text-align: right;
-    font-size: 1.2rem;
     font-weight: bold;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0; /* Keeps table header fixed */
+    z-index: 2;
+}
+
+.credit-table tr:hover {
+    background-color: #f9f9f9;
+    transition: background-color 0.2s;
+}
+
+/* Totals container styling */
+#totals-container {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background: #f7f7f7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #4caf50; /* Green text for totals */
+    border: 1px solid #ddd;
+}
+
+#totals-container:hover {
+    background: #f0f0f0;
+    transition: background 0.3s ease;
+}
+
+/* Delete button */
+.delete-button {
+    background: linear-gradient(45deg, #ef5350, #e57373);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button:hover {
+    background: linear-gradient(45deg, #d32f2f, #ef5350);
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #add-credit-button {
+        width: 100%;
+    }
+
+    #search-bar {
+        width: 100%;
+    }
+
+    .tab-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-container {
+        gap: 10px;
+    }
+
+    #add-credit-button,
+    #search-bar {
+        font-size: 0.9rem;
+        padding: 8px 10px;
+    }
+
+    .credit-table th,
+    .credit-table td {
+        font-size: 0.9rem;
+    }
+
+    .edit-button,
+    .delete-button {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+
+    #totals-container {
+        font-size: 1rem;
+    }
+}
+
+
+/* Modal Styling */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.modal-content form label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.modal-content form input,
+.modal-content form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-buttons button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-buttons #cancel-button {
+    background: #f44336;
+    color: white;
+}
+
+.modal-buttons #cancel-button:hover {
+    background: #d32f2f;
+}
+
+.modal-buttons button[type="submit"] {
+    background: #4caf50;
+    color: white;
+}
+
+.modal-buttons button[type="submit"]:hover {
+    background: #388e3c;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* General Button Styling */
+button {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Credit-A-Obtenir and Credit-A-Rembourser Buttons */
+#credit-a-obtenir-button,
+#credit-a-rembourser-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #333;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px;
+}
+
+#credit-a-obtenir-button:hover,
+#credit-a-rembourser-button:hover {
+    background: #e6e6e6;
+}
+
+#credit-a-obtenir-button.active,
+#credit-a-rembourser-button.active {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Bar Styling */
+#search-bar {
+    width: 100%;
+    max-width: 735px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+#search-bar:focus {
+    border-color: #4caf50; /* Green border on focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Modify Button Styling */
+.modify-button {
+    background: linear-gradient(45deg, #42a5f5, #64b5f6); /* Blue gradient */
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.modify-button:hover {
+    background: linear-gradient(45deg, #1e88e5, #42a5f5); /* Darker blue */
+    transform: scale(1.05); /* Slight zoom on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* "Ajouter un Crédit" Button Styling */
+.add-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #4caf50, #66bb6a); /* Green gradient */
+    color: white;
+    font-size: 1.2rem; /* Slightly larger text */
+    font-weight: bold;
+    padding: 12px 25px; /* More padding for a prominent look */
+    border: none;
+    border-radius: 8px; /* Smooth rounded corners */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    text-align: center;
+    transition: all 0.3s ease; /* Smooth hover and active transitions */
+}
+
+/* Hover Effect */
+.add-button:hover {
+    background: linear-gradient(45deg, #388e3c, #4caf50); /* Darker gradient on hover */
+    transform: translateY(-3px); /* Slight lift */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    opacity: 0.95; /* Slight transparency */
+}
+
+/* Active/Pressed State */
+.add-button:active {
+    transform: translateY(1px); /* Button pushes down slightly */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow */
+    background: linear-gradient(45deg, #2e7d32, #388e3c); /* Even darker green */
+}
+
+/* Focus Effect */
+.add-button:focus {
+    outline: 2px solid #81c784; /* Add a focus outline for accessibility */
+    outline-offset: 2px;
+}
+
+
+/* زر الرجوع الحديث */
+.back-button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.modern-back-button {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #4caf50, #81c784); /* لون متدرج */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.modern-back-button:hover {
+    background: linear-gradient(to right, #388e3c, #66bb6a); /* لون عند التمرير */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.modern-back-button .back-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.modern-back-button .back-text {
+    font-size: 1rem;
+}
+
+.modern-back-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.modern-back-button:hover::after {
+    width: 100%;
+}
+
+.modern-back-button span {
+    position: relative;
+    z-index: 1;
+}
+.view-operations-button {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #ff9800, #ffb74d); /* Orange gradient */
+    color: white;
+    border: none;
+    border-radius: 6px; /* Smaller border radius */
+    padding: 8px 16px; /* Reduced padding */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.view-operations-button:hover {
+    background: linear-gradient(to right, #f57c00, #ffa726); /* Darker orange on hover */
+    box-shadow: 0px 5px 7px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.view-operations-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: width 0.3s ease-in-out;
+    z-index: 0;
+}
+
+.view-operations-button:hover::after {
+    width: 100%;
+}
+
+.view-operations-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px); /* Optional blur effect */
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    border-radius: 10px;
+    padding: 35px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease-in-out;
+}
+
+/* Modal Title */
+.modal-content h2 {
+    margin: 0 0 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Modal List */
+#operations-list {
+    margin-bottom: 20px;
+    list-style: none;
+    padding: 0;
+    border-top: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto; /* Scroll if list is long */
+}
+
+#operations-list li {
+    padding: 10px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+}
+
+/* Form Styling */
+#add-operation-form {
+    margin-top: 15px;
+}
+
+#add-operation-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+}
+
+#add-operation-form input,
+#add-operation-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#add-operation-form input:focus,
+#add-operation-form select:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+/* Buttons */
+#add-operation-form button {
+    font-size: 1rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#add-operation-form button[type="submit"] {
+    background: #4caf50;
+    color: white;
+    font-weight: bold;
+}
+
+#add-operation-form button[type="submit"]:hover {
+    background: #388e3c;
+}
+
+#close-operations-modal {
+    background: #f44336;
+    color: white;
+    font-weight: bold;
+}
+
+#close-operations-modal:hover {
+    background: #d32f2f;
+}
+
+/* Fade In Animation */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Scrollbar Styling for Operations List */
+#operations-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#operations-list::-webkit-scrollbar-thumb {
+    background: #4caf50;
+    border-radius: 5px;
+}
+
+#operations-list::-webkit-scrollbar-thumb:hover {
+    background: #388e3c;
+}
+
+.delete-operation-button {
+    background: #f44336; /* Red color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background 0.3s ease;
+}
+
+.delete-operation-button:hover {
+    background: #d32f2f; /* Darker red */
 }
