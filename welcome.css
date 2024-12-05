@@ -139,33 +139,37 @@ body {
 }
 
 .page-title {
-    font-size: 36px;
-    color: #fff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin: 0; /* Remove default margin */
-    position: absolute; /* Position it in the center */
-    top: 20%; /* Move to the middle vertically */
-    left: 50%; /* Move to the middle horizontally */
-    transform: translate(-50%, -50%) scale(0.8); /* Start slightly smaller */
-    opacity: 0; /* Start invisible */
-    animation: fadeInScale 1.5s ease-out forwards; /* Apply animation */
+  font-size: 48px; /* حجم خط أكبر وأكثر وضوحًا */
+  font-weight: bold; /* جعل النص أكثر سمكًا */
+  color: #fff; /* اللون الأبيض للنص */
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 255, 255, 0.3); /* ظلال ناعمة ومضيئة */
+  margin: 0; /* إزالة الهوامش الافتراضية */
+  position: absolute; /* تموضع العنوان */
+  top: 13%; /* تموضع رأسي في المنتصف */
+  left: 50%; /* تموضع أفقي في المنتصف */
+  transform: translate(-50%, -50%) scale(0.8); /* بدء العنوان بحجم صغير */
+  opacity: 0; /* جعله غير مرئي في البداية */
+  animation: fancyFadeIn 2s ease-out forwards; /* إضافة تأثير الأنيميشن */
+  letter-spacing: 2px; /* زيادة التباعد بين الحروف */
+  text-transform: uppercase; /* تحويل النص إلى حروف كبيرة */
 }
 
 /* Animation keyframes */
-@keyframes fadeInScale {
-    0% {
-        transform: translate(-50%, -50%) scale(0.8); /* Slightly smaller */
-        opacity: 0; /* Invisible */
-    }
-    50% {
-        transform: translate(-50%, -50%) scale(1.2); /* Overshoot effect */
-        opacity: 0.8; /* Partially visible */
-    }
-    100% {
-        transform: translate(-50%, -50%) scale(1); /* Final size */
-        opacity: 1; /* Fully visible */
-    }
+@keyframes fancyFadeIn {
+  0% {
+      transform: translate(-50%, -50%) scale(0.5) rotate(-10deg); /* دوران بسيط وحجم أصغر */
+      opacity: 0; /* غير مرئي */
+  }
+  50% {
+      transform: translate(-50%, -50%) scale(1.2) rotate(5deg); /* حركة مائلة وزيادة الحجم */
+      opacity: 0.8; /* شبه مرئي */
+  }
+  100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg); /* الحجم النهائي ووضع النص المستقيم */
+      opacity: 1; /* مرئي بالكامل */
+  }
 }
+
 
 /* Centered Rows */
 .row {
